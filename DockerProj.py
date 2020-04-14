@@ -9,6 +9,7 @@ container = client.containers.run("ubuntu",stdin_open=True,tty=True, detach = Tr
 #debugging docker status remaining as "created" only
 status = container.status
 container.start()
+container.reload()
 status = container.status
 
 #command loop - take user command as cmd, run cmd in container, return logs, repeat until "exit"
@@ -18,5 +19,5 @@ while cmd != "exit":
     if cmd == "exit":
         break
     else:
-        container.exec_run(cmd)
-        print(container.logs())
+        tuple = container.exec_run(cmd, tty=True,stdin=True,stdout=True)
+        print(tuple[1])
