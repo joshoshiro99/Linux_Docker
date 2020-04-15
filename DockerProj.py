@@ -15,7 +15,7 @@ status = container.status
 #command loop - take user command as cmd, run cmd in container, return logs, repeat until "exit"
 cmd = ""
 while cmd != "exit":
-    cmd = input("The following commands are available for you to use: echo, ls, touch, mkdir and rmdir\ntype \"exit\" to quit:\n")
+    cmd = input("The following commands are available for you to use: echo, ls, touch, rm, mkdir and rmdir\ntype \"exit\" to quit:\n")
     if cmd == "exit":
         break
     else:
